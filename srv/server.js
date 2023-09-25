@@ -1,6 +1,6 @@
 var fs = require("fs");
 
-let jsonData = JSON.parse(fs.readFileSync("./setup.json"));
+let jsonData = JSON.parse(fs.readFileSync("setup.json"));
 console.log(jsonData);
 
 const express = require("express");
@@ -17,10 +17,10 @@ const users = {};
 io.on("connection", (socket) => {
   console.log(socket.id);
   socket.on("promeni", (text) => {
-    let jsonData1 = JSON.parse(fs.readFileSync("./setup.json"));
+    let jsonData1 = JSON.parse(fs.readFileSync("setup.json"));
     jsonData1.backgroundColor = text;
 
-    fs.writeFileSync("./setup.json", JSON.stringify(jsonData1));
+    fs.writeFileSync("setup.json", JSON.stringify(jsonData1));
 
     console.log(jsonData1.backgroundColor);
     socket.emit("promenjena", "boja je promenjena");
