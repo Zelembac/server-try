@@ -1,5 +1,5 @@
 function init() {
-  let socket = io.connect("http://localhost:5000");
+  let socket = io.connect("https://try-server-8tm6.onrender.com/");
 
   socket.on("connect", () => {
     console.log(socket.id);
